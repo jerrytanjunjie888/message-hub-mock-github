@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  message-hub-mock:
+    image: registry-cn-local.subsidia.org/message-hub/message-hub-mock
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - GIN_MODE=release
+    networks:
+      backend:
+        aliases:
+          - message-hub-mock
+    ports:
+      - "3010:3000"
+
+networks:
+  backend:
+    external:
+      name: messagehub-backend

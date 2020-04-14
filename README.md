@@ -1,1 +1,1 @@
-# message-hub-mock-github
+# message-hub-mock

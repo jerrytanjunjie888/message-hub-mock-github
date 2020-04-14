@@ -1,0 +1,67 @@
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@basePath = /trigger-msg/v1/api
+@baseURL = {{host}}{{basePath}}
+@contentType = application/json;charset=utf-8
+
+
+# Params
+@sequenceId = tid_230367
+@countryCode = CN
+@timestamp = 123123131
+@sign = DELIEVERY
+@msgType = SMS
+
+### Test
+GET http://{{baseURL}}/test HTTP/1.1
+Content-Type: {{contentType}}
+
+
+### Get message Status
+POST http://{{baseURL}}/sendstatus HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "sequenceId": "{{sequenceId}}",
+    "timestamp": "{{timestamp}}",
+    "sign": "{{sign}}",
+    "msgType": "{{msgType}}",
+    "status": "7",
+    "failedCode": "03003"
+}
+
+
+###
+GET  http://{{baseURL}}/getDir/001 HTTP/1.1
+
+###
+GET  http://{{baseURL}}/getInfoDir/001 HTTP/1.1
+
+
+###
+POST http://{{baseURL}}/push HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+    "system_id":"dkt_newton",
+    "sequence_id":"dkt_newton_message_push_20191025_022",
+    "country_code":"CN",
+    "biz_data": {
+        "event_id": "DELIVERY",
+        "event_name": "DELIVERY",
+        "channel": "EMAIL",
+        "language_code": "CN",
+        "contact_id": "param1",
+        "mobile_country_code": "0086",
+        "mobile_no": "18521564856",
+        "email": "luchenhua@icloud.com",
+        "we_chat_open_id": "o4zAjt9-4gxg892F13r5flv5yeZU",
+        "first_name": "Alex",
+        "last_name": "LU",
+        "customer_firstname": "陆棽桦",
+        "intervention_product_label": "dkt_newton_message_push_20191025_022",
+        "txt_context": "dkt_newton_message_push_20191025_022",
+        "seller_store_name": "迪卡侬外高桥门店"
+    }
+}

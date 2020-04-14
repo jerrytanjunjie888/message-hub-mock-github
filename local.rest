@@ -1,0 +1,19 @@
+@hostname = localhost
+@port = 80
+@host = {{hostname}}:{{port}}
+@basePath = /trigger-msg/v1/api
+@baseURL = {{host}}{{basePath}}
+@contentType = application/json
+@applicationName = dkt_newton
+
+###
+
+GET  http://{{baseURL}}/test HTTP/1.1
+
+###
+
+POST http://{{baseURL}}/push HTTP/1.1
+Content-Type: {{contentType}}
+X-Application-Name: {{applicationName}}
+
+{"contactId":"15004972812","countryCode":"CN","languageCode":"zh","communicationChannel":"email","eventCode":"PWD_CODE_EMAIL_CN","attributes":{"LANGUAGE":"ZH","LOYALTY_FORM_URL":"https://frontcnpp.cube-net.pub/zh/reset-password?tokenId=wN5yXYvaBRx7KW6gAVDtZQ%3D%3D&tokenAction=sbsQxdpBydtXYsgI3T3L48q40HseDZAXsxOcqsQeygXxPeQLOZIxY2pgGnzzrfumJM7S4%2FojvSjoemhNK6akFBYAnVoeaOtjgzpCWGX6iDo3QWh3BqGkw2QNx2ko5XC53%2FmaSUH6yRAGXN8eoqj8jzdBaHcGoaTDaaPm3Lk5NCQGlfGq4FK2Bb%2FY0kwOJN2UOqEQjysgd7CDooVaKbPwhw%3D%3D&ppays=CN&langue=zh","PASSWORD_PAGE_URL":"https://frontcnpp.cube-net.pub/zh/reset-password?tokenId=wN5yXYvaBRx7KW6gAVDtZQ%3D%3D&tokenAction=sbsQxdpBydtXYsgI3T3L48q40HseDZAXsxOcqsQeygXxPeQLOZIxY2pgGnzzrfumJM7S4%2FojvSjoemhNK6akFBYAnVoeaOtjgzpCWGX6iDo3QWh3BqGkw2QNx2ko5XC53%2FmaSUH6yRAGXN8eoqj8jzdBaHcGoaTDaaPm3Lk5NCQGlfGq4FK2Bb%2FY0kwOJN2UOqEQjysgd7CDooVaKbPwhw%3D%3D&ppays=CN&langue=zh","FIRSTNAME":"康","WEBSITE_URL":"https://www.decathlon.com.cn","EMAIL":"external.z23kxu+cn2@decathlon.com","PIN_CODE":"873857","MOBILE_PHONE_NUMBER":"_","ACCOUNT_COUNTRY":"CN","TRACKING_ID":"0b_aSpFKlPMHT1rOCyaCWw","LOYALTY_CARD_NUMBER":"2091084030753","STORE_NAME":"Zhoushi","LASTNAME":"胥","MY_ACCOUNT_URL":"https://www.decathlon.com.cn","POINT_BALANCE":"_"},"communicationValue":{"emailAddress":"external.z23kxu+cn2@decathlon.com"}}
